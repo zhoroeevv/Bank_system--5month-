@@ -15,7 +15,7 @@ class User(AbstractUser):
         default=0,
         verbose_name='Возраст'
     )
-    balance = models.PositiveIntegerField(
+    balance = models.IntegerField(
         default=0,
         verbose_name = 'Баланс',
         blank=True, null=True
@@ -41,9 +41,8 @@ class User(AbstractUser):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return self.username
+        return f"{self.wallet_address} \n     username:{self.username}"
 
     class Meta:
         verbose_name = 'Пользователь'
         verbose_name_plural = 'Пользователи'
-        
