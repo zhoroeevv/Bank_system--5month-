@@ -46,18 +46,4 @@ class User(AbstractUser):
     class Meta:
         verbose_name = 'Пользователь'
         verbose_name_plural = 'Пользователи'
-
-class HistoryTransfer(models.Model):
-    from_user = models.ForeignKey(User,related_name='transfer_sent', on_delete=models.CASCADE, verbose_name='От пользователя')
-    to_user = models.ForeignKey(User,related_name='transfer_received', on_delete=models.CASCADE, verbose_name='К пользователю')
-    is_completed = models.BooleanField(default=False, verbose_name='Статус выпонения')
-    amount = models.PositiveIntegerField(verbose_name='Сумма', default=0)
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
-
-    def __str__(self):
-        return f"{self.from_user} отправлено {self.to_user}"
-    
-    class Meta:
-        verbose_name = 'Перевод'
-        verbose_name_plural = 'Переводы'
         

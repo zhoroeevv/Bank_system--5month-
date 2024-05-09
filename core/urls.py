@@ -21,7 +21,8 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 api_urlpatterns = [
-    path('users/', include('apps.users.urls'))
+    path('users/', include('apps.users.urls')),
+    path('transfer/', include('apps.transfer.urls'))
 ]
 
 urlpatterns = [
